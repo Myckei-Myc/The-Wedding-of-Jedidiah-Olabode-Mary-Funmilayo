@@ -112,7 +112,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#fdfcf0] selection:bg-[#c5a059]/20">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-center overflow-hidden gpu-accelerated">
+      <section className="relative h-screen lg:h-[750px] flex items-center justify-center text-center overflow-hidden gpu-accelerated">
         <motion.div 
           className="absolute inset-0"
           initial={{ scale: 1.1 }}
@@ -122,13 +122,13 @@ export default function App() {
           <img 
             src="https://i.ibb.co/kg6kFKkg/1.jpg" 
             alt="Wedding Background" 
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover object-[center_15%]"
             referrerPolicy="no-referrer"
           />
-          <div className="absolute inset-0 bg-black/40 hero-gradient" />
+          <div className="absolute inset-0 bg-black/30" />
         </motion.div>
         
-        <div className="relative z-10 px-6 text-[#C5A059] max-w-4xl h-full flex flex-col justify-between py-24 mx-auto">
+        <div className="relative z-10 px-6 text-[#C5A059] max-w-4xl h-full flex flex-col justify-center gap-12 lg:gap-16 py-12 mx-auto">
           <motion.span 
             className="uppercase tracking-[0.4em] text-xs mb-6 block font-light hero-text-shadow"
             initial={{ opacity: 0, y: 10 }}
@@ -195,33 +195,35 @@ export default function App() {
 
       {/* Gallery Section */}
       <section className="py-12 bg-white gpu-accelerated">
-        <div 
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="gallery-container gap-4 px-6 pb-8 no-scrollbar"
-          style={{ scrollBehavior: 'smooth' }}
-        >
-          {[
-            "https://i.ibb.co/kg6kFKkg/1.jpg",
-            "https://i.ibb.co/C3pkRDCz/12.jpg",
-            "https://i.ibb.co/WNg3JGhb/2.jpg",
-            "https://i.ibb.co/9kDvwKvM/3.jpg",
-            "https://i.ibb.co/fVjCCdj6/34.jpg",
-            "https://i.ibb.co/5xvyjNYf/4.jpg",
-            "https://i.ibb.co/21wHPrww/5.jpg",
-            "https://i.ibb.co/HTpvYPKf/56.jpg"
-          ].map((src, idx) => (
-            <div key={idx} className="flex-none w-[85vw] aspect-[4/5] snap-center" style={{ scrollSnapAlign: 'center' }}>
-              <img 
-                src={src}
-                alt={`Gallery ${idx + 1}`}
-                className="w-full h-full object-cover rounded-2xl"
-                loading="lazy"
-                decoding="async"
-                referrerPolicy="no-referrer"
-              />
-            </div>
-          ))}
+        <div className="max-w-6xl mx-auto">
+          <div 
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="gallery-container gap-4 px-6 pb-8 no-scrollbar"
+            style={{ scrollBehavior: 'smooth' }}
+          >
+            {[
+              "https://i.ibb.co/kg6kFKkg/1.jpg",
+              "https://i.ibb.co/C3pkRDCz/12.jpg",
+              "https://i.ibb.co/WNg3JGhb/2.jpg",
+              "https://i.ibb.co/9kDvwKvM/3.jpg",
+              "https://i.ibb.co/fVjCCdj6/34.jpg",
+              "https://i.ibb.co/5xvyjNYf/4.jpg",
+              "https://i.ibb.co/21wHPrww/5.jpg",
+              "https://i.ibb.co/HTpvYPKf/56.jpg"
+            ].map((src, idx) => (
+              <div key={idx} className="flex-none w-[85vw] md:w-auto md:h-[80vh] md:max-h-[80vh] aspect-[4/5] md:aspect-auto snap-center flex items-center justify-center" style={{ scrollSnapAlign: 'center' }}>
+                <img 
+                  src={src}
+                  alt={`Gallery ${idx + 1}`}
+                  className="w-full h-full object-cover md:object-contain rounded-2xl"
+                  loading="lazy"
+                  decoding="async"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            ))}
+          </div>
         </div>
         
         {/* Pagination Dots */}
